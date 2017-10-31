@@ -11,6 +11,31 @@ class Idol {
 
       this[key.slice(1)] = value;
     };
+
+    this.weightInt = parseInt(this.weight, 10);
+    this.heightInt = parseInt(this.height, 10);
+    this.ageInt    = parseInt(this.age, 10);
+    this.bmi = this.weightInt / ((this.heightInt /100.0) ** 2);
+  }
+
+  bmiStr() { return isNaN(this.bmi) ? '' : this.bmi.toFixed(2) }
+
+  heightStr() {
+    if (!this.height) {
+      return '';
+    }
+    return isNaN(this.heightInt) ? this.height : `${this.heightInt}cm`;
+  }
+
+  weightStr() {
+    if (!this.weight) {
+      return '';
+    }
+    return isNaN(this.weightInt) ? this.weight : `${this.weightInt}kg`;
+  }
+
+  ageStr() {
+    return this.age ? `${this.age}歳` : '';
   }
 }
 

@@ -25,20 +25,28 @@
             :data='idols'>
 
           <template scope="props">
-            <b-table-column field="name" label="名前" sortable>
-                {{ props.row.name }}
+            <b-table-column field="nameKana" label="名前" sortable>
+              {{ `${props.row.name}(${props.row.nameKana})` }}
             </b-table-column>
 
-            <b-table-column field="age" label="年齢" sortable>
-                {{ props.row.age + '歳' }}
+            <b-table-column field="ageInt" label="年齢" sortable>
+              {{ props.row.ageStr() }}
             </b-table-column>
 
-            <b-table-column field="height" label="身長" sortable>
-                {{ props.row.height + 'cm' }}
+            <b-table-column field="heightInt" label="身長" sortable>
+              {{ props.row.heightStr() }}
             </b-table-column>
 
-            <b-table-column field="weight" label="体重" sortable>
-                {{ props.row.weight + 'kg' }}
+            <b-table-column field="weightInt" label="体重" sortable>
+              {{ props.row.weightStr() }}
+            </b-table-column>
+
+            <b-table-column field="birthPlace" label="出身地" sortable>
+              {{ props.row.birthPlace }}
+            </b-table-column>
+
+            <b-table-column field="bmi" label="BMI" sortable>
+              {{ props.row.bmiStr() }}
             </b-table-column>
           </template>
         </b-table>
