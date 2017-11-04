@@ -20,34 +20,71 @@
     <div id="app">
       <section>
         <b-table
-            :paginated="true"
-            :per-page="10"
-            :data='idols'>
+         :paginated="true"
+         :per-page="10"
+         :data='idols'
+         detailed
+         >
 
           <template scope="props">
             <b-table-column field="nameKana" label="名前" sortable>
               {{ `${props.row.name}(${props.row.nameKana})` }}
             </b-table-column>
 
-            <b-table-column field="ageInt" label="年齢" sortable>
-              {{ props.row.ageStr() }}
-            </b-table-column>
+           <b-table-column field="ageInt" label="年齢" sortable>
+             {{ props.row.ageStr() }}
+           </b-table-column>
 
-            <b-table-column field="heightInt" label="身長" sortable>
-              {{ props.row.heightStr() }}
-            </b-table-column>
+           <b-table-column field="heightInt" label="身長" sortable>
+             {{ props.row.heightStr() }}
+           </b-table-column>
 
-            <b-table-column field="weightInt" label="体重" sortable>
-              {{ props.row.weightStr() }}
-            </b-table-column>
+           <b-table-column field="weightInt" label="体重" sortable>
+             {{ props.row.weightStr() }}
+           </b-table-column>
 
-            <b-table-column field="birthPlace" label="出身地" sortable>
-              {{ props.row.birthPlace }}
-            </b-table-column>
+           <b-table-column field="birthPlace" label="出身地" sortable>
+             {{ props.row.birthPlace }}
+           </b-table-column>
 
-            <b-table-column field="bmi" label="BMI" sortable>
-              {{ props.row.bmiStr() }}
-            </b-table-column>
+           <b-table-column field="bmi" label="BMI" sortable>
+             {{ props.row.bmiStr() }}
+           </b-table-column>
+
+           <b-table-column field="birthDate" label="誕生日" sortable>
+             {{ props.row.birthDate }}
+           </b-table-column>
+
+           <b-table-column field="bloodType" label="血液型" sortable>
+             {{ props.row.bloodType }}
+           </b-table-column>
+
+           <b-table-column field="constellation" label="星座" sortable>
+             {{ props.row.constellation }}
+           </b-table-column>
+          </template>
+
+          <template slot="detail" scope="props">
+            <table class="table">
+              <thead>
+                <th>趣味</th>
+                <th>利き手</th>
+                <th>特技</th>
+                <th>好きなもの</th>
+                <th>スリーサイズ</th>
+                <th>靴のサイズ</th>
+              </thead>
+              <tbody>
+                <td>{{ props.row.hobby }}</td>
+                <td>{{ props.row.handednessStr() }}</td>
+                <td>{{ props.row.talent }}</td>
+                <td>{{ props.row.favorite }}</td>
+                <td>{{ props.row.threeSize() }}</td>
+                <td>{{ props.row.shoeSizeStr() }}</td>
+              </tbody>
+            </table>
+            <!--
+            -->
           </template>
         </b-table>
       </section>
