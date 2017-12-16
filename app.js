@@ -75,7 +75,7 @@ var app = new Vue({
   },
   methods: {
     get_songs: function (cds, units) {
-      var idols = YAML.load('https://bitbucket.org/gomao9/idol-profile/raw/master/profile.yml')
+      var idols = YAML.load('data/profile.yml')
       return Object.values(idols).map(function(idol) {
         return new Idol(idol);
       });
