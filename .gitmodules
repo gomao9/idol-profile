@@ -1,0 +1,3 @@
+[submodule "data"]
+	path = data
+	url = https://bitbucket.org/gomao9/idol-profile
