@@ -19,10 +19,18 @@
   <body>
     <div id="app">
       <section>
+        <div class="columns">
+          <div class="column">
+            <input v-model:value='keyword'class="input" type="text" placeholder="アイドル名で検索">
+          </div>
+        </div>
+      </section>
+
+      <section>
         <b-table
          :paginated="true"
          :per-page="10"
-         :data='idols'
+         :data='filtered_idols'
          detailed
          >
 

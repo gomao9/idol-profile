@@ -63,15 +63,21 @@ class Idol {
 
 var app = new Vue({
   el: '#app',
-  data: {
-    keyword: '',
-    original_songs: undefined,
-    idols: undefined,
-    enabled_search_items: ["song_name", "idol_unit", "cd", "cd_short"],
-    enable_hashtag: false
+  data: function() {
+    return {
+      keyword: '',
+      idols: [],
+    }
   },
   mounted: function () {
     this.idols = this.get_songs();
+  },
+  computed: {
+    filtered_idols: function() {
+      return this.idols.filter(function(idol) {
+        return idol.name.includes(app.keyword) || idol.nameKana.includes(app.keyword);
+      });
+    }
   },
   methods: {
     get_songs: function (cds, units) {
